@@ -12,7 +12,7 @@ import java.time.LocalDate;
  * @author carja
  */
 public class Bear extends Mamal{
-    public double maxSpeed;
+    private double maxSpeed;
     public Bear(int ID,Employee employee, LocalDate bornDate, double animalWeight, double maxSpeed) {
         super.setID(ID);
         super.setEmployee(employee);

@@ -7,10 +7,14 @@ package com.mycompany.zooproject;
 import Animal.Animal;
 import ConsoleInterface.ConsoleInterface;
 import Context.Context;
+import Database.DatabaseConnection;
+import Database.DatabaseManager;
+import Database.EmployeeRepository;
 import Employee.Employee;
 import Location.Location;
 import Services.Audit;
 import Services.CsvWriter;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -28,13 +32,19 @@ public class ZooProject {
        aud = Audit.getInstance();
        Context con = Context.getInstance();
        ConsoleInterface.constructObject(con);
-       con.readAllCsvData();
+       //con.readAllCsvData();
+       DatabaseManager dmb = DatabaseManager.getInstance();
+       dmb.LoadData();
        ConsoleInterface interfata = ConsoleInterface.getInstance();
        interfata.showMenu();
-       LinkedList<Animal> allAnimals = con.getAllAnimals();
-       ArrayList<Employee> allEmployees =con.getAllEmployees();
-       LinkedList<Location> allLocations = con.getAllLocations();
-       CsvWriter.writeToCsv(allAnimals, allEmployees, allLocations);
+       
+       
+       dmb.saveData();
+       
+       //LinkedList<Animal> allAnimals = con.getAllAnimals();
+       //ArrayList<Employee> allEmployees =con.getAllEmployees();
+       //LinkedList<Location> allLocations = con.getAllLocations();
+       //CsvWriter.writeToCsv(allAnimals, allEmployees, allLocations);
       
        
       

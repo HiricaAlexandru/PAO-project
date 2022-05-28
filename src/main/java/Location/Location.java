@@ -115,6 +115,14 @@ public class Location {
         return listAnimale;
     }
     
+    public LinkedList<Integer> getIdsOfAnimals(){
+        LinkedList<Integer> listAnimale = new LinkedList<>();
+        for(Animal anm : this.animalList){
+            listAnimale.add(anm.getID());
+        }
+        return listAnimale;
+    }
+    
     public boolean removeAnimal(int id){
         for(int i = 0;i<animalList.size();i++){
             if(animalList.get(i).getID() == id){
